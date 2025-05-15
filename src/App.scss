@@ -1,0 +1,41 @@
+#front-page{
+  background-color: rgb(255, 251, 246);
+  height: 100%;
+  min-height: 100vh;
+  width: 100vw;
+}
+
+#top-bar{
+  height: 10vh;
+  width: 100vw;
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 2vh;
+}
+
+#title-text{
+  font-size: xx-large;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.icons{
+  height: 100%;
+  margin: auto;
+}
+
+.figures{
+  text-align: center;
+  height: 100%;
+  max-width:10vw;
+  justify-content: center;
+  align-items: center;
+  position:relative;
+}
+
+.figures:hover{
+  filter: invert(0.3);
+  cursor: pointer;
+}
+
