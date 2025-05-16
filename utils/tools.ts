@@ -88,7 +88,7 @@ export class BackendRequestBuilder{
 
 export function localStorageOrDefault<DefaultValue>(key: string, defaultValue: DefaultValue | undefined): DefaultValue | undefined{
     let local = localStorage.getItem(key)
-    if (defaultValue === undefined){
+    if (local == null && defaultValue === undefined){
         return undefined
     }
     if (local == null){

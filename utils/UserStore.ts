@@ -1,7 +1,6 @@
 import { create } from "zustand";
 import type { User } from "../types/User";
-import { useLocalStorage } from "react-use";
-import { localStorageOrDefault } from "./tools"
+import { localStorageOrDefault } from "./tools";
 
 
 interface UserPreferencesState{

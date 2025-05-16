@@ -1,5 +1,5 @@
 
-import { z, type ZodFormattedError } from "zod"
+import { z } from "zod"
 import { alphaNumericRegex, anRegexWithExtraChars } from "../utils/config"
 
 export const userSchema = z.object({
