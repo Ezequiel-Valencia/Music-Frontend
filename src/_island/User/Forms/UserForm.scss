@@ -1,0 +1,34 @@
+
+.form-submission-button{
+    margin-top: 5%; padding-left:10%; padding-right:10%;
+}
+
+.user-form{
+    margin-top: 5%; margin-bottom:5%;
+}
+
+.login-input{
+    display: grid;
+    grid-row: 3;
+}
+
+.login-label{
+    font-size: 1.2em;
+}
+
+.user-input{
+    background-color: rgb(250, 227, 184);
+    height: 1.5em;
+}
+
+#sign-up{
+    font-size: medium;
+    text-decoration-color: black;
+    text-decoration-line: underline;
+    padding-top: 5%;
+}
+
+#sign-up:hover{
+    cursor: pointer;
+}
+
