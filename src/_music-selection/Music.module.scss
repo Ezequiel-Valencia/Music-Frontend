@@ -1,0 +1,117 @@
+
+
+.leftButton{
+    margin:auto; height: 5vmin; padding-right:2vw; transform:rotate(180deg);
+}
+
+.rightButton{
+    margin:auto; height: 5vmin; padding-right:2vw;
+}
+
+.mainStyle{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto; margin-right:auto; margin-bottom: 0; 
+}
+
+.musicBodySection{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height:min-content;
+}
+
+.carousel{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    width: 80vw;
+    height: 40vh;
+    transform-style: preserve-3d;
+    overflow: hidden;
+    perspective: 600px;
+    --position: 1;
+}
+
+.carouselItem{
+    text-align: center;
+    position: absolute;
+    --r: calc(var(--position) - var(--offset));
+    --absr: abs(var(--r));
+
+    transition: all 0.25s linear;
+
+    transform: rotateY(calc(-25deg * var(--r)))
+    translateX(calc(-40vw * var(--r)));
+
+    z-index: calc(var(--position) - var(--absr));
+}
+
+.iFrame {
+    width: 30vw; 
+    aspect-ratio:16 /9;
+}
+
+@media (max-width: 600px){
+    .carouselItem{
+        text-align: center;
+        position: absolute;
+        --r: calc(var(--position) - var(--offset));
+        --absr: abs(var(--r));
+
+        transition: all 0.25s linear;
+
+        transform: rotateY(calc(-40deg * var(--r)))
+        translateX(calc(-65vw * var(--r)));
+
+        z-index: calc(var(--position) - var(--absr));
+    }
+    iframe{
+        aspect-ratio: 16/16;
+        width: 50vw;
+    }
+}
+
+@media (max-height: 500px){
+    .carousel{
+        height: 60vh;
+    }
+}
+
+.sideButton{
+    height: 50vh; 
+    width:10vw;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+
+.curatorDescription{
+    position: relative;
+    height: 100%;
+    margin-top:5vh;
+    width: 80vw;
+    max-width: 1000px;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgba(128, 128, 128, 0.486);
+    border-radius: 8px;
+    border-color: black;
+}
+
+.figures{
+    text-align: center;
+    height: 100%;
+    max-width:10vw;
+    justify-content: center;
+    align-items: center;
+    position:relative;
+    margin-right: 1vw;
+    margin-left: 1vw;
+}
+
