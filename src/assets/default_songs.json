@@ -1,0 +1,24 @@
+{
+  "CuratorName": "Ezequiel",
+  "CuratorDescription": "There seems to be problems with the website currently, so here are some of my favorite modern funk songs I've played on my radio show.",
+  "MusicEntries": [
+    {
+      "Title": "Crush",
+      "Artist": "Duckwrth",
+      "PathResource": "N4AamvslOQc",
+      "SongOrder": 0
+    },
+    {
+      "Title": "24k",
+      "Artist": "Tkay Maidza",
+      "PathResource": "jaQlof0z5W4",
+      "SongOrder": 2
+    },
+    {
+      "Title": "Witchoo",
+      "Artist": "Durang Jones and The Indications",
+      "PathResource": "d7vTtnevlO4",
+      "SongOrder": 1
+    }
+  ]
+}
