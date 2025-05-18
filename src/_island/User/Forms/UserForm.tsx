@@ -1,4 +1,4 @@
-import { userState } from "../../../../utils/UserStore";
+import { userStore } from "../../../../utils/UserStore";
 import UserSignUpForm from "./UserSignUpForm";
 import UserLoginForm from "./UserLoginForm";
 import "./UserForm.scss"
@@ -8,7 +8,7 @@ import { useState } from "react";
 
 function UserForm(){
     const [showLogin, setLogin] = useState(false);
-    const userCache = userState((state) => state.user)
+    const userCache = userStore((state) => state.user)
     if (userCache != null && userCache != undefined){
         return null
     }

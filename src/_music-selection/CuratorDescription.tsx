@@ -2,7 +2,7 @@ import { useState } from "react"
 import { todaysSelectionStore } from "../../utils/MusicStore"
 import UserPic from "../assets/user-circle.svg"
 import styles from "./Music.module.scss"
-import { showNotes } from "../../utils/UserStore"
+import { showNotesStore } from "../../utils/UserStore"
 
 type CuratorDescriptionProps = {
     errorOcurred: boolean
@@ -12,7 +12,7 @@ type CuratorDescriptionProps = {
 
 
 function CuratorDescription({errorOcurred}: CuratorDescriptionProps){
-    const userPreferences = showNotes((state) => state.showNotes)
+    const userPreferences = showNotesStore((state) => state.showNotes)
     const [showCuratorReason, updateShowCuratorReason] = useState<boolean>(userPreferences)
     const todaysSelection = todaysSelectionStore((state) => state.todaysSelection)
 

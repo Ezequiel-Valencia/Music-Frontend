@@ -69,7 +69,7 @@
 
         z-index: calc(var(--position) - var(--absr));
     }
-    iframe{
+    .iFrame{
         aspect-ratio: 16/16;
         width: 50vw;
     }
@@ -87,6 +87,10 @@
     align-items: center;
     justify-content: center;
     text-align: center;
+}
+
+.sideButton:hover{
+    cursor: pointer;
 }
 
 

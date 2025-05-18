@@ -30,6 +30,7 @@ type TodaysSelectionCache = {
     todaysSelection: TodaysSelection | null
     carouselPosition: number
     setSelection: (selection: TodaysSelection) => void
+    setCarouselPosition: (i: number) => void 
 }
 
 
@@ -40,6 +41,9 @@ export const todaysSelectionStore = create<TodaysSelectionCache>()(
             carouselPosition: 1,
             setSelection: (selection: TodaysSelection) => {
                 set({carouselPosition: get().carouselPosition, todaysSelection: selection})
+            },
+            setCarouselPosition: (i) => {
+                set({carouselPosition: i, todaysSelection: get().todaysSelection})
             }
         }
     }

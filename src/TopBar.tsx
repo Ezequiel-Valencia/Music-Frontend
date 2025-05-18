@@ -2,14 +2,14 @@ import "./App.scss"
 import Calendar from "./assets/Calendar.svg"
 import UserCircle from "./assets/user-circle.svg"
 
-import { userState } from "../utils/UserStore"
+import { userStore } from "../utils/UserStore"
 import { IslandInstance, islandGUIState } from "./_island/IslandStore"
 import { CenterStage } from "./_island/CenterStage"
 
 
 
 function TopBar(){
-    const user = userState((state) => state.user)
+    const user = userStore((state) => state.user)
     const updateIslandState = islandGUIState((state) => state.updateIsland)
     return <>
         <nav id="top-bar">

@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query"
 import { todaysSelectionStore } from "../../../utils/MusicStore"
-import { userState, voteStore } from "../../../utils/UserStore"
+import { userStore, voteStore } from "../../../utils/UserStore"
 import { BackendRequestBuilder, readStreamBody } from "../../../utils/tools"
 import VoteRadioButtons from "./VoteRadioButtons"
 import styles from "./VoteSection.module.scss"
@@ -14,7 +14,7 @@ function VoteSection(){
     const updateVoteState = voteStore((state) => state.updateLastVote)
     const carouselPosition = todaysSelectionStore((state) => state.carouselPosition)
     const todaysSelection = todaysSelectionStore((state) => state.todaysSelection)
-    const user = userState((state) => state.user)
+    const user = userStore((state) => state.user)
 
 
     const { refetch } = useQuery({

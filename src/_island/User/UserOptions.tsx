@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { showNotes, userState } from "../../../utils/UserStore"
+import { showNotesStore, userStore } from "../../../utils/UserStore"
 import { apiServer } from "../../../utils/config"
 import "./UserBase.scss"
 import UserBaseError from "./UserBaseError"
@@ -9,10 +9,10 @@ import { BackendRequestBuilder, readStreamBody } from "../../../utils/tools"
 
 
 function UserOptions(){
-    const userCache = userState((state) => state.user)
-    const deleteUserCache = userState((state) => state.delete)
-    const updateShowNotes = showNotes((state) => state.updateShowNotes)
-    const shouldShowNotes = showNotes((state) => state.showNotes)
+    const userCache = userStore((state) => state.user)
+    const deleteUserCache = userStore((state) => state.delete)
+    const updateShowNotes = showNotesStore((state) => state.updateShowNotes)
+    const shouldShowNotes = showNotesStore((state) => state.showNotes)
     const [ httpError, updateHTTPError ] = useState("")
     const { refetch } = useQuery({
         queryKey: ['user'],

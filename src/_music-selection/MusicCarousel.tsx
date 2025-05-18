@@ -1,4 +1,4 @@
-import { useRef, useState, type JSX } from "react";
+import { useRef, type JSX } from "react";
 import { todaysSelectionStore } from "../../utils/MusicStore";
 import Arrow from "../assets/right-arrow.svg";
 import styles from "./Music.module.scss";
@@ -6,7 +6,8 @@ import styles from "./Music.module.scss";
 
 
 function MusicCarousel(){
-    const [ carouselPosition, updateCarousel ] = useState(1)
+    const carouselPosition = todaysSelectionStore((state) => state.carouselPosition)
+    const updateCarousel = todaysSelectionStore((state) => state.setCarouselPosition)
     const todaysSelection = todaysSelectionStore((state) => state.todaysSelection)
     
     const carouselSection = useRef<HTMLDivElement | null>(null)
@@ -33,6 +34,7 @@ function MusicCarousel(){
     todaysSelection?.MusicEntries.map((entry, i) => {
         musicEntriesElements.push(
         <div className={styles.carouselItem}
+        key={i}
         style={musicEntryStyle(i)} role="gridcell" tabIndex={i} id={"carousel-item-" + i} onClick={() => {updateCarousel(i)}}>
             <iframe className={styles.iFrame} style={{pointerEvents: i == carouselPosition ? "all" : "none"}} src={"https://www.youtube.com/embed/" + entry.PathResource} 
             title={entry.Title}></iframe>

@@ -1,7 +1,7 @@
 
 import { apiServer } from "./config";
 import Cookies from 'js-cookie'
-import { userState } from "./UserStore";
+import { userStore } from "./UserStore";
 
 
 export async function readStreamBody(stream: ReadableStream<Uint8Array>): Promise<string> {
@@ -55,7 +55,7 @@ export class BackendRequestBuilder{
     const csrfToken = Cookies.get("csrf_token")
     if (csrfToken === undefined){
       // remove user cache if it's present cause its no longer valid
-      userState.getState().delete()
+      userStore.getState().delete()
       return "Not authorized."
     }
     if (this.headers === undefined){

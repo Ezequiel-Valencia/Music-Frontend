@@ -4,7 +4,7 @@ import React from 'react';
 import CuratorDescription from './CuratorDescription';
 import { defaultSongs } from './MusicBody';
 import MusicCarousel from './MusicCarousel';
-import VoteSection from './VoteSection';
+import VoteSection from './vote/VoteSection';
 
 type Props = {
   children: React.ReactNode;

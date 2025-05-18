@@ -4,7 +4,7 @@ import { BackendRequestBuilder } from "../../utils/tools";
 import DefaultSongs from "../assets/default_songs.json";
 import CuratorDescription from "./CuratorDescription";
 import MusicCarousel from "./MusicCarousel";
-import VoteSection from "./VoteSection";
+import VoteSection from "./vote/VoteSection";
 
 
 async function getTodaysMusic(setTodaysSelection: any){

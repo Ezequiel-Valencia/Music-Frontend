@@ -81,7 +81,7 @@ export type UserCache = {
 // }
 
 
-export const userState = create<UserCache>()(
+export const userStore = create<UserCache>()(
     function initializer(set){
         let key = "user_cache";
         return {

@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query"
 import { useReducer, useRef, useState } from "react"
-import { userState } from "../../../../utils/UserStore"
+import { userStore } from "../../../../utils/UserStore"
 import UserBaseError, { validationErrorReducer } from "../UserBaseError"
 import { GetUserObject } from "./Request"
 import { registerFormSchema } from "../../../../types/User"
@@ -11,7 +11,7 @@ function UserSignUpForm(){
     const [httpError, setHTTPError] = useState("")
     const form = useRef<HTMLFormElement>(null)
     const [validationErrors, setValidationErrors] = useReducer(validationErrorReducer, []);
-    const setUser = userState((state) => state.setUser)
+    const setUser = userStore((state) => state.setUser)
     let formData: FormData
     
     const { refetch } = useQuery({
