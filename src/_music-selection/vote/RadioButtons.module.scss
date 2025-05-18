@@ -1,0 +1,92 @@
+
+$bg: #353535;
+$bgA: #797979;
+:root {
+  --cSize: 30px;
+  --cInactive: #232739;
+  --cActive: #000000;
+  --particleSize: 0px;
+  --cEasing: ease;
+  --cTiming: 0s;
+  --innerPaddingSize: 30px;
+}
+
+
+.particlesCheckboxContainer{
+    display: inline-flex;
+    padding: 20px;
+    align-items: center;
+    border-radius: 8px;
+    border: 3px solid transparent;
+    cursor: pointer;
+    position: relative;
+    transition: all var(--cTiming) var(--cEasing);
+    span {
+        border-radius: calc(var(--innerPaddingSize) * 0.5);
+        margin-left: 4px;
+        // padding: var(--innerPaddingSize);
+        padding-left: calc(var(--cSize) + var(--innerPaddingSize) + 10px);
+        width: 20vw;
+        min-width: 300px;
+        color: $bg;
+        transition: all var(--cTiming) var(--cEasing);
+    }
+    .particles-checkbox {
+        position: absolute;
+        left: var(--innerPaddingSize);
+    }
+}
+
+
+.particlesCheckbox{
+    height: var(--cSize);
+  width: var(--cSize);
+  display: inline-flex;
+  appearance: none;
+  border: 3px $bg solid;
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+  transition: all var(--cTiming) var(--cEasing);
+  margin: 2px;
+  &:focus {
+    outline: 0;
+  }
+  &:checked {
+    background-color: var(--cActive);
+    &::after {
+      background-color: #ffffff;
+      height: calc(var(--cSize) * 0.3);
+      width: calc(var(--cSize) * 0.3);
+    }
+    // Comment out particles
+    // &::before {
+    //   animation: particleAnimate var(--cTiming) var(--cEasing) forwards;
+    // }
+  }
+  
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    border-radius: inherit;
+    height: 0px;
+    width: 0px;
+  }
+  &::after {
+    transition: all var(--cTiming) var(--cEasing);
+  }
+  &::before {
+    --particleSize: 4px;
+    height: var(--particleSize);
+    width: var(--particleSize);
+    z-index: 2;
+  }
+}
+
+

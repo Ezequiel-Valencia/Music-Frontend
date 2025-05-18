@@ -9,7 +9,7 @@ interface UserPreferencesState{
 }
 
 
-export const showNotes = create<UserPreferencesState>()(
+export const showNotesStore = create<UserPreferencesState>()(
     function initializer(set, get, store){
         let key = "showCuratorNotes";
         return {
@@ -35,10 +35,11 @@ export type VoteDecision = {
 interface VoteState{
     lastVote: VoteDecision
     updateLastVote: (vote: VoteDecision) => void
+    didTheyVoteToday: () => boolean
 }
 
-export const votes = create<VoteState>()(
-    function initializer(set){
+export const voteStore = create<VoteState>()(
+    function initializer(set, get){
         let minute = 60 * 1000
         let day = 24 * 60 * minute
         let yesterday = new Date(new Date().getTime() - day)
@@ -51,8 +52,10 @@ export const votes = create<VoteState>()(
             lastVote: localStorageOrDefault<VoteDecision>(key, defaultLastVote)!,
             updateLastVote: (vote) => set(() => {
                 localStorage.setItem(key, JSON.stringify(vote));
+                set({lastVote: vote})
                 return {lastVote: vote}
-            })
+            }),
+            didTheyVoteToday: () => {return new Date(get().lastVote.dateUTC).getDate() == new Date().getDate()}
         }
     }
 )
