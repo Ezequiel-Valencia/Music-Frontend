@@ -10,11 +10,11 @@ interface UserPreferencesState{
 
 
 export const showNotesStore = create<UserPreferencesState>()(
-    function initializer(set, get, store){
+    function initializer(set){
         let key = "showCuratorNotes";
         return {
             showNotes: localStorageOrDefault<boolean>(key, true)!,
-            updateShowNotes: (bool) => set((state) => {
+            updateShowNotes: (bool) => set(() => {
                 localStorage.setItem(key, JSON.stringify(bool)) // sets local storage
                 return { showNotes: bool }
             } )

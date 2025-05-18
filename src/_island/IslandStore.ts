@@ -1,10 +1,12 @@
 import { create } from "zustand"
 
-export enum IslandInstance {
-    Calendar,
-    Info,
-    User,
-    None
+
+
+export class IslandInstance{
+    public static Calendar = 0
+    public static Info = 1
+    public static User = 2
+    public static None = 3
 }
 
 interface IslandGUIState{
