@@ -1,4 +1,4 @@
-import { useRef, type JSX } from "react";
+import { useEffect, useRef, type JSX } from "react";
 import { todaysSelectionStore } from "../../utils/MusicStore";
 import Arrow from "../assets/right-arrow.svg";
 import styles from "./Music.module.scss";
@@ -16,13 +16,20 @@ function MusicCarousel(){
     const leftCarousel = () => {let i = carouselPosition - 1; if (i > -1){updateCarousel(i)}}
     const rightCarousel = () => {let i = carouselPosition + 1; if (i < todaysSelection!.MusicEntries.length){updateCarousel(i)}}
 
-    // document.addEventListener("keydown", (ev) =>{ 
-    //     if (ev.key == "ArrowRight"){
-    //         rightCarousel()
-    //     } else if(ev.key == "ArrowLeft"){
-    //         leftCarousel()
-    //     }
-    // })
+    useEffect(() => {
+        function handleKeyDown(ev: KeyboardEvent){
+            if (ev.key == "ArrowRight"){
+                rightCarousel()
+            } else if(ev.key == "ArrowLeft"){
+                leftCarousel()
+            }
+        }
+    
+        window.addEventListener("keydown", handleKeyDown)
+
+        const cleanUp = () => window.removeEventListener("keydown", handleKeyDown)
+        return cleanUp
+    }, [leftCarousel, rightCarousel])
 
     const musicEntriesElements: JSX.Element[] = []
 
